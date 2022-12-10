@@ -3,3 +3,4 @@
 export(adjPicApp)
 export(adjustPicture)
 export(demo_dd)
+importFrom(shiny,shinyApp)
