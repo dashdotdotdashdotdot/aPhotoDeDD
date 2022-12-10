@@ -1,4 +1,4 @@
-require(shiny)
+library(shiny)
 
 ui2 = fluidPage(
   titlePanel("Adjust Picture"),
@@ -53,6 +53,15 @@ ui2 = fluidPage(
 
 
 
+#' Title
+#'
+#' @param pictureIn an input photo
+#'
+#' @return launch an  app that adjusts the picture
+#' @export
+#'
+#' @examples dove = demo_DD()
+#' @examples adjPicApp(dove)
 adjPicApp <- function(pictureIn) {
 
   photoName = substitute(pictureIn)
