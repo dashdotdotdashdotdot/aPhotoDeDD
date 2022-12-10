@@ -42,7 +42,6 @@ testFunction = FALSE
 #' @examples adjustPicture(pictureIn,400,bsh=c(100,0,100),darkGrey = 0.4, lightGrey = 0.6,crop = c(1,1,0,0),return=7,aspect=1)
 #' @examples tst2[i] =  adjustPicture(tmp,pixels0,bsh=c(100,0,100),return=0,aspect=cwh[1]/cwh[2])
 
-
 adjustPicture <- function(pictureIn, pixels = 1000, imageFlip = FALSE, imageFlop = FALSE,
                           imageRotate = 0, bsh = c(100, 100, 100), darkGreyIn = .25, lightGreyIn = .75, crop = c(1, 1, 0, 0),
                           return = 4, imageNegate = FALSE, maxPixel = 7000, aspect = 0, enlarge = 0, offCenter = 1, offRight = 1, backCol1 = 1) {
