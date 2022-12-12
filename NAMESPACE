@@ -3,4 +3,8 @@
 export(adjPicApp)
 export(adjustPicture)
 export(demo_dd)
+export(getPixels)
+export(makeTessalation)
+export(transPics)
+importFrom(magick,image_info)
 importFrom(shiny,shinyApp)

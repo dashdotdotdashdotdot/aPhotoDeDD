@@ -4,7 +4,7 @@ ui2 = fluidPage(
   titlePanel('Adjust Picture'),
   sidebarLayout(
     sidebarPanel(
-      selectInput('useWhich_photo', label = 'Use Which Photo',
+      selectInput('useWhich_photo', label = 'Return Which Photo',
                   choices = list('As is' = 1, 'gt Dark Grey' = 2, 'Dark to Light' = 3,'Normalize' = 4,
                                  'lt Light Grey' = 5, 'Low Contrast' = 6, 'High Contrast' = 7, 'All'= 8),
                   selected = 1),
@@ -24,8 +24,6 @@ ui2 = fluidPage(
                   value = 100, step = 1),
       sliderInput('hPhoto', 'Photo Hue :', min = 0, max = 200,
                   value = 100, step = 1),
-      sliderInput('black_n_white_photo', label = 'Dark and Light Points', min = 0,
-                  max = 1, value = c(.25, .75)),
       sliderInput('cutHorizontal', label = 'Cut Horizontal', min = 0,
                   max = 1, value = c(.0, 1)),
       sliderInput('cutVertical', label = 'Cut Vertical', min = 0,

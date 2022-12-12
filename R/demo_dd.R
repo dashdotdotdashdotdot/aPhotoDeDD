@@ -6,10 +6,18 @@
 #' @export
 #'
 #' @examples demo_dd("dove.jpg")
-demo_dd <- function(path="dove.jpg") {
-   magick::image_read(system.file("", path, package = "aPhotoDeDD"))
+#' @examples demo_dd("mm",pixels=400)
+demo_dd <- function(path0="dove.jpg",pixels=0) {
+  if (path0 %in% c("dove","3wins","thescream","mm","che","bogie","monalisa") ){
+    path = paste0(path0,".jpg") } else path = path0
+
+ tmp=   magick::image_read(system.file("", path, package = "aPhotoDeDD"))
+ if (pixels != 0){
+   tmp = image_resize(tmp,geometry_size_pixels(width=pixels,heigh=pixels))
+ }
+
+ return(tmp)
   #  image_read(paste0(".//inst//images//",path))
   #magick::image_read(path)
 }
 
-#demo_dd(path="~/dwdRstuff/testPackages/take11/inst/dove.jpg")

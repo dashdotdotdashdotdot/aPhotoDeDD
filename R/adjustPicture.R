@@ -34,13 +34,14 @@ testFunction = FALSE
 #' @return it returns a stack of images
 #' @export
 #'
-#' @examples pictureIn = image_read("~//dwdRstuff//imageFolders//cylinderChess//Photos//profile.jpg")
+#' @examples pictureIn = demo_dd("thescream.jpg")
 #' @examples pictureIn = image_resize(pictureIn,geometry_size_pixels(width=400,heigh=400))
-#' @examples stack = adjustPicture(pictureIn,400,bsh=c(100,100,100),darkGrey = 0.49, lightGrey = 0.50,crop = c(1,1,0,0),return=1,aspect=1)
+#' @examples stack = adjustPicture(pictureIn,400,bsh=c(100,100,100),darkGrey = 0.49, lightGrey = 0.50,crop = c(1,1,0,0),return=7,aspect=1)
 #' @examples image_append(stack)
-#' @examples pictureIn = makePhotoData(photoData$mm,pixels=400)
+#' @examples pictureIn = demo_dd("mm.jpg")
 #' @examples adjustPicture(pictureIn,400,bsh=c(100,0,100),darkGrey = 0.4, lightGrey = 0.6,crop = c(1,1,0,0),return=7,aspect=1)
-#' @examples tst2[i] =  adjustPicture(tmp,pixels0,bsh=c(100,0,100),return=0,aspect=cwh[1]/cwh[2])
+#' @examples photo = demo_dd("NegWedding.jpg")
+#' @examples adjustPicture(photo, pixels = 800,bsh = c(117,0,101),crop = c(0.47,0.6,0.18,0.16), return = 0, imageNegate = TRUE)
 
 adjustPicture <- function(pictureIn, pixels = 1000, imageFlip = FALSE, imageFlop = FALSE,
                           imageRotate = 0, bsh = c(100, 100, 100), darkGreyIn = .25, lightGreyIn = .75, crop = c(1, 1, 0, 0),
@@ -85,15 +86,6 @@ adjustPicture <- function(pictureIn, pixels = 1000, imageFlip = FALSE, imageFlop
   if (return > 0) {
     cwh1 <- as.numeric(image_info(mainPic2)[2:3])
 
-    makeBlack <- function(x) {
-      if (x > 12) {
-        return(255)
-      } else {
-        return(x)
-      }
-    }
-
-    #  vapply(pictureIn,FUN=makeBlack())
     black <- image_blank(cwh1[1], cwh1[2], col = rgb(0, 0, 0))
     white <- image_blank(cwh1[1], cwh1[2], col = rgb(1, 1, 1))
 
