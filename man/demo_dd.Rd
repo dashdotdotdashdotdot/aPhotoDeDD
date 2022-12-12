@@ -4,7 +4,7 @@
 \alias{demo_dd}
 \title{demo_dd}
 \usage{
-demo_dd(path = "dove.jpg")
+demo_dd(path0 = "dove.jpg", pixels = 0)
 }
 \arguments{
 \item{path}{of an image to load}
@@ -17,4 +17,5 @@ demo_dd
 }
 \examples{
 demo_dd("dove.jpg")
+demo_dd("mm",pixels=400)
 }

@@ -13,7 +13,7 @@ demo_dd <- function(path0="dove.jpg",pixels=0) {
 
  tmp=   magick::image_read(system.file("", path, package = "aPhotoDeDD"))
  if (pixels != 0){
-   tmp = image_resize(tmp,geometry_size_pixels(width=pixels,heigh=pixels))
+   tmp = magick::image_resize(tmp,magick::geometry_size_pixels(width=pixels,height =pixels))
  }
 
  return(tmp)

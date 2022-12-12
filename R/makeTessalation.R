@@ -50,8 +50,8 @@ makeTessalation = function(photo,rows=2,columns=2,decay=0,center=c(1,1),option=1
     counter = 0
     for (j in 1:rows) {
       for (i in 1:columns){
-        photo0 = image_resize(photo,
-                              geometry_size_pixels(
+        photo0 = magick::image_resize(photo,
+                                magick::geometry_size_pixels(
                                 width=max(decayFactor^abs(center[1]-i)*wh0[1],1),
                                 height=(1^abs(center[2]-j))*wh0[2]
                                 ,preserve_aspect = FALSE)
@@ -69,8 +69,8 @@ makeTessalation = function(photo,rows=2,columns=2,decay=0,center=c(1,1),option=1
       widthPixels = image_info(newRow)[[2]]
       heightPixels = image_info(newRow)[[3]]
       if (offSet0 == 1) {counter=counter+1}
-      newRow = image_resize(newRow,
-                            geometry_size_pixels(
+      newRow = magickk::image_resize(newRow,
+                              magick::geometry_size_pixels(
                               width=max(1^abs(center[1]-i)*widthPixels,1),
                               height=max(decayFactor^abs(center[2]-j)*heightPixels,1)
                               ,preserve_aspect = FALSE)
@@ -86,20 +86,3 @@ makeTessalation = function(photo,rows=2,columns=2,decay=0,center=c(1,1),option=1
   }
   return(newPhoto)}
 
-testFunction = FALSE
-
-if (testFunction == TRUE) {
-  library(magick)
-
-  negative = c(0,0)
-  negativeRow = c(0,0)
-
-  pixels = 200
-
-  path= "~//dwdRstuff//imageFolders//cylinderChess//Photos//"
-  photo = image_resize(image_read(paste0(
-    path,"chessBoard.jpg")),
-    geometry_size_pixels(width=pixels,height=pixels))
-  photo2 = makeTessalation(photo,rows=3,columns=3,decay = 2, center=c(2,2),option=1)
-  photo2
-}

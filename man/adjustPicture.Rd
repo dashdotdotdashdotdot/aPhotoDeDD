@@ -81,11 +81,12 @@ step6 is high contrast
 is  3, 4, 5, 6 is moreContrast, 7 is the stack of all
 }
 \examples{
-pictureIn = image_read("~//dwdRstuff//imageFolders//cylinderChess//Photos//profile.jpg")
+pictureIn = demo_dd("thescream.jpg")
 pictureIn = image_resize(pictureIn,geometry_size_pixels(width=400,heigh=400))
-stack = adjustPicture(pictureIn,400,bsh=c(100,100,100),darkGrey = 0.49, lightGrey = 0.50,crop = c(1,1,0,0),return=1,aspect=1)
+stack = adjustPicture(pictureIn,400,bsh=c(100,100,100),darkGrey = 0.49, lightGrey = 0.50,crop = c(1,1,0,0),return=7,aspect=1)
 image_append(stack)
-pictureIn = makePhotoData(photoData$mm,pixels=400)
+pictureIn = demo_dd("mm.jpg")
 adjustPicture(pictureIn,400,bsh=c(100,0,100),darkGrey = 0.4, lightGrey = 0.6,crop = c(1,1,0,0),return=7,aspect=1)
-tst2[i] =  adjustPicture(tmp,pixels0,bsh=c(100,0,100),return=0,aspect=cwh[1]/cwh[2])
+photo = demo_dd("NegWedding.jpg")
+adjustPicture(photo, pixels = 800,bsh = c(117,0,101),crop = c(0.47,0.6,0.18,0.16), return = 0, imageNegate = TRUE)
 }

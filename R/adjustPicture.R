@@ -54,16 +54,16 @@ adjustPicture <- function(pictureIn, pixels = 1000, imageFlip = FALSE, imageFlop
   pixels0 <- min(pixels, maxPixel)
   cwh0 <- image_info(pictureIn)[2:3]
   cwh_new <- pixels0 * cwh0 / max(cwh0)
-  mainPic2 <- image_resize(
+  mainPic2 <- magick::image_resize(
     pictureIn,
-    geometry_size_pixels(width = cwh_new[1], height = cwh_new[2], preserve_aspect = "FALSE")
+    magick::geometry_size_pixels(width = cwh_new[1], height = cwh_new[2], preserve_aspect = "FALSE")
   )
   cwh <- image_info(mainPic2)[2:3]
-  mainPic2 <- image_crop(mainPic2, geometry_area(crop[1] * cwh[[1]], crop[2] * cwh[[2]], crop[3] * cwh[[1]], crop[4] * cwh[[2]]))
+  mainPic2 <- image_crop(mainPic2, magick::geometry_area(crop[1] * cwh[[1]], crop[2] * cwh[[2]], crop[3] * cwh[[1]], crop[4] * cwh[[2]]))
 
   if (aspect != 0) {
     cwh <- image_info(mainPic2)[2:3]
-    mainPic2 <- image_resize(mainPic2, geometry_size_pixels(width = pixels0, height = pixels0 / aspect, preserve_aspect = "FALSE"))
+    mainPic2 <- magick::image_resize(mainPic2, magick::geometry_size_pixels(width = pixels0, height = pixels0 / aspect, preserve_aspect = "FALSE"))
   }
 
 

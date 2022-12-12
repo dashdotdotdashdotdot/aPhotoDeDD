@@ -134,17 +134,3 @@ adjPicApp <- function(pictureIn) {
   )
 } # ends shinyApp
 
-#pictureIn = image_read('~//dwdRstuff//imageFolders//cylinderChess//Photos//profile.jpg')
-#pictureIn= image_resize(pictureIn,geometry_size_pixels(width=400,heigh=400))
-
-#pictureIn2 = image_read('~//dwdRstuff//imageFolders//cylinderChess//Photos//herbRitts.jpg')
-#pictureIn2= image_resize(pictureIn,geometry_size_pixels(width=400,heigh=400))
-
-#x=rnorm(100)
-
-#myfunc <- function(v1) {
-#  deparse(substitute(v1))
-#}
-
-#myfunc(pictureIn)
-
