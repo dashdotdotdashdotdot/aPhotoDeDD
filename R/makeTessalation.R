@@ -32,7 +32,7 @@
 
 
 
-makeTessalation = function(photo,rows=2,columns=2,decay=0,center=c(1,1),option=1){
+makeTessalation = function(photo,rows=2,columns=2,decay=0,center=c(1,1),option=1,print_out=F){
   wh0 = image_info(photo)[2:3]
   decayFactor = 2^decay
   if ( ( (rows == 0) * (columns == 0) ) ==TRUE) { newPhoto = photo } else {
@@ -58,7 +58,7 @@ makeTessalation = function(photo,rows=2,columns=2,decay=0,center=c(1,1),option=1
         )
 
         cell =   (i+j-2 + counter) %% length(flop) + 1
-        print(cell)
+        if (print_out==T) {print(cell)}
         if (1 == flop[cell]) {photo0 = image_flop(photo0) }
         if (1 == negative[cell]) {photo0 = image_negate(photo0) }
         if (1 == flip[cell]) {photo0 = image_flip(photo0) }
@@ -69,7 +69,7 @@ makeTessalation = function(photo,rows=2,columns=2,decay=0,center=c(1,1),option=1
       widthPixels = image_info(newRow)[[2]]
       heightPixels = image_info(newRow)[[3]]
       if (offSet0 == 1) {counter=counter+1}
-      newRow = magickk::image_resize(newRow,
+      newRow = magick::image_resize(newRow,
                               magick::geometry_size_pixels(
                               width=max(1^abs(center[1]-i)*widthPixels,1),
                               height=max(decayFactor^abs(center[2]-j)*heightPixels,1)
