@@ -1,0 +1,58 @@
+---
+title: "Positive Negative Marriage"
+output:
+  html_document:
+    df_print: paged
+---
+
+This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. 
+
+Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Cmd+Shift+Enter*. 
+
+```{r}
+library(aPhotoDeDD)
+library(magick)
+photo = demo_dd('NegWedding.jpg')
+#adjPicApp(photo)
+pixels0=400
+
+photo1 = adjustPicture(photo, pixels = pixels0, bsh = c(117,100,100),return = 0,imageNegate = FALSE)
+photo2 = adjustPicture(photo, pixels = pixels0, bsh = c(117,100,100),return = 0,imageNegate = TRUE)
+
+image_append(c(photo1,photo2))
+
+```
+
+```{r}
+noFrames=10
+blackNwhite = rbind( cbind( rep(0,noFrames/2),seq(0,1,length=noFrames/2)),
+                     cbind(seq(0,1,length=noFrames/2),rep(1,noFrames/2)) )
+
+stack1 = rep(photo1,noFrames)
+for (i in 1:noFrames) {
+stack1[i] = transPics(photo1,photo2,blackNwhite = blackNwhite[i,])
+#print(i)
+}
+
+image_append(stack1[round(seq(1,length(stack1),length=5),0)])
+```
+
+```{r}
+stack2 = stack1
+for (i in 1:length(stack2) ){
+#tst = adjustPicture(stack1[i],pixels=600)
+tst =  stack1[i]
+stack2[i]=makeTessalation(tst,rows=1,columns=3,decay=-2.8,center=c(2,1),option=1)
+}
+stack1[5]
+```
+
+
+```{r}
+write_gif = F
+if (write_gif == T) {
+stack3 = image_morph(c( stack2[length(stack2):1],stack1 ))
+image_write_gif(stack3,"posNegMarriage.gif")
+}
+```
+
