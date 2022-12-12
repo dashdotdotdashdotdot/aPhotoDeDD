@@ -25,7 +25,7 @@ image_append(c(photo1, photo2))
 
 ```
 
-The next code block creates a stack of images that starts with the positive image and transforms into the negative image.  It transforms first on the left-hand side of the image and then on the right-hand side of the image. This is accomplished with the blackNwhite matrix which is passed one row per frame to the transPic function.  This block take a few seconds per frame.
+The next code block creates a stack of images that starts with the positive image and transforms into the negative image.  It transforms first on the left-hand side of the image and then on the right-hand side of the image. This is accomplished with the blackNwhite matrix which is passed one row per frame to the transPic function.  
 
 
 ```{r, ,out.width="100%"}
