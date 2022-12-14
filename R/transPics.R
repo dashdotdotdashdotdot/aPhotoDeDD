@@ -19,7 +19,7 @@ transPics = function(pic1,pic2,blackNwhite=c(0,1)) {
   grey=magick::image_blank(500,500,pseudo_image =
                      paste0('gradient:grey',min(max(0,floor(blackNwhite[1]*100)),100),"-grey",
                             min(max(0,floor(blackNwhite[2]*100)),100)) )
-  grey = adjustPicture(grey,bsh=c(100,100,100),pixels=cwh[1],imageRotate=90,aspect=(cwh[2]/cwh[1]),return=0)
+  grey = adjustPicture(grey,bsh=c(100,100,100),pixels=max(cwh),imageRotate=90,aspect=(cwh[2]/cwh[1]),return=0)
   #tmp1 = magick::image_fx_sequence(c(pic1,grey)," (v * u )" )
   #tmp2 = magick::image_fx_sequence(c(pic2,magick::image_negate(grey))," (v * u ) " )
   #tmp3 = magick::image_fx_sequence(c(tmp1,tmp2)," v+u" )

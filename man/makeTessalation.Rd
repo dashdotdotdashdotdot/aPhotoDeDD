@@ -10,7 +10,8 @@ makeTessalation(
   columns = 2,
   decay = 0,
   center = c(1, 1),
-  option = 1
+  option = 1,
+  print_out = F
 )
 }
 \arguments{

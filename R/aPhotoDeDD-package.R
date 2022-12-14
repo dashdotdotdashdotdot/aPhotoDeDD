@@ -6,6 +6,7 @@
 #' @importFrom magick image_info
 #' @importFrom magick image_modulate
 #' @importFrom magick image_negate
+#' @importFrom magick image_read
 #' @importFrom magick image_resize
 #' @importFrom magick image_rotate
 #' @importFrom shiny shinyApp
