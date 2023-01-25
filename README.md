@@ -5,7 +5,9 @@ This repo will contain some basic tools for photo manipulation.
 If you run this:
 
 remotes::install_github("dashdotdotdashdotdot/aPhotoDeDD") 
+
 library(aPhotoDeDD)
+
 thescream <- demo_dd(path = "thescream.JPG")
 
 adjPicApp(thescream)
