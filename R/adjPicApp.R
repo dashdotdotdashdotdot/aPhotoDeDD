@@ -67,7 +67,7 @@ adjPicApp <- function(pictureIn) {
     ui = ui2,
     server = function(input, output) {
       library(magick)
-      library(ArtMathdeDD)
+      #library(ArtMathdeDD)
       backColor <- reactive(rgb(input$Grey, input$Grey, input$Grey))
       toUse <- reactive(as.numeric(input$useWhich_photo) - 1)
       crop1 <- reactive(c(
